@@ -2,18 +2,11 @@ Snap.plugin(function(Snap, Element, Paper) {
 
 	var SEGMENT_PATH = "M{x1},{y1}A{radius},{radius} 0 {large},1 {x2} {y2}L{x3},{y3}A{innerRadius},{innerRadius} 0 {large},0 {x4} {y4}Z";
 
-	function getPointOnCircle(x, y, radius, angle) {
-		return {
-			x: x + radius * Math.sin(angle),
-			y: y + -radius * Math.cos(angle)
-		};
-	}
-
 	Paper.prototype.doughnutSegment = function(x, y, radius, innerRadius, startAngle, endAngle) {
-		var point1 = getPointOnCircle(x, y, radius, startAngle);
-		var point2 = getPointOnCircle(x, y, radius, endAngle);
-		var point3 = getPointOnCircle(x, y, innerRadius, endAngle);
-		var point4 = getPointOnCircle(x, y, innerRadius, startAngle);
+		var point1 = Circle.getPointOnCircle(x, y, radius, startAngle);
+		var point2 = Circle.getPointOnCircle(x, y, radius, endAngle);
+		var point3 = Circle.getPointOnCircle(x, y, innerRadius, endAngle);
+		var point4 = Circle.getPointOnCircle(x, y, innerRadius, startAngle);
 		
 		return this.path(Snap.format(SEGMENT_PATH, {
 			originX: x,
