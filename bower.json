@@ -6,7 +6,7 @@
   ],
   "description": "Draw a segment of a doughnut shape (a circle with a hole in the middle)using Snap.svg",
   "dependencies": {
-    "circle-utils": "https://git.assembla.com/descartes_diaphragm.circle-utils.git"
+    "circle-utils": "https://github.com/factmint/circle-utils.git"
   },
   "main": "dist/doughnut-segment.js",
   "moduleType": [
